@@ -1,0 +1,72 @@
+<body>
+
+  <div id="form-container">
+    <form class="new-emotion">
+      <input type="text" name="author" placeholder="Ecris ton nom">
+      <input type="text" name="name" placeholder="Quelle émotion ?">
+      <input type="text" name="shadow" placeholder="Quelle ombre ?">
+      <input type="text" name="sound" placeholder="Quel son ?">
+      <input type="text" name="mask" placeholder="Quel masque ?">
+      <input type="text" name="pattern" placeholder="Quel motif ?">
+      <input type="submit">
+    </form>
+    <button id="new-emotion-btn">+</button>
+  </div>
+
+
+  <div id="left-col" class="col">
+    <div id="emotion-list">
+        {{#each emotions}}
+          {{> emotion}}
+        {{/each}}
+    </div>
+  </div>
+
+  <div id="right-col" class="col">
+<!--     <span>{{currentEmotion.name}}</span> -->
+    <div class="perspective-wrapper">
+      <div class="cube">
+        <div class="floor side">
+        </div>
+        <div class="wall side">
+          <div class="shadow-outer">
+            <img class="shadow-img svg" src="shadows/{{currentEmotion.shadow}}.svg">
+            <div class="shadow-container" 
+                style="-webkit-mask: url(shadows/{{currentEmotion.shadow}}.svg) center / contain no-repeat;
+                      background-image:url('patterns/{{currentEmotion.pattern}}.jpg');
+                      background-size:20px 20px;">
+              <img class="shadow-img svg" src="shadows/{{currentEmotion.shadow}}.svg">
+            </div>
+          </div>
+        </div>
+        <div class="left-wall side">
+        </div>
+      </div>
+    </div>
+    <div class="mannequin-cont">
+      <img id="mannequin-img" src="assets/mannequin.png">
+      <div class="mannequin-mask-cont">
+        <img class="mannequin-mask" src="masks/{{currentEmotion.mask}}.png">
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+<template name="emotion">
+<!--   <span>{{author}}, {{name}}, {{shadow}}, {{sound}}, {{pattern}}</span> -->
+    
+  <div id="{{_id}}" class="emotion-cont emotion-selected" data-action="select-emotion">
+    <button class="delete">&times;</button>
+    <div class="emotion-img-cont">
+      <img src="masks/{{mask}}.png">
+    </div>
+    <div class="emotion-name">{{name}}, by {{author}}
+    </div>
+    <audio autoplay id="{{_id}}-sound" class="emotion-audio">
+      <source class="emotion-sound" src="sounds/{{sound}}.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+</template>
