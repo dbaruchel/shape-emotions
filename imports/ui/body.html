@@ -34,7 +34,7 @@
             <div class="shadow-container" 
                 style="-webkit-mask: url(shadows/{{currentEmotion.shadow}}.svg) center / contain no-repeat;
                       background-image:url('patterns/{{currentEmotion.pattern}}.jpg');
-                      background-size:20px 20px;">
+                      background-size:150px 150px;">
               <img class="shadow-img svg" src="shadows/{{currentEmotion.shadow}}.svg">
             </div>
           </div>
@@ -57,14 +57,14 @@
 <template name="emotion">
 <!--   <span>{{author}}, {{name}}, {{shadow}}, {{sound}}, {{pattern}}</span> -->
     
-  <div id="{{_id}}" class="emotion-cont emotion-selected" data-action="select-emotion">
+  <div id="{{_id}}" class="emotion-cont" data-action="select-emotion">
     <div class="emotion-img-cont">
       <img src="masks/{{mask}}.png">
     </div>
     <div class="emotion-name">
       <span style="color:grey" class="delete">&times;</span><span>&nbsp;{{name}}, par {{author}}</span>
     </div>
-    <audio autoplay id="{{_id}}-sound" class="emotion-audio">
+    <audio id="{{_id}}-sound" class="emotion-audio">
       <source class="emotion-sound" src="sounds/{{sound}}.mp3" type="audio/mpeg">
     </audio>
   </div>

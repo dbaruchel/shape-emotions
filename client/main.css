@@ -193,9 +193,10 @@ form.new-emotion {
 
 .shadow-outer {
 	position: absolute;
-	left: 500px;
+	left: 600px;
 	top: 100px;
 	height: 420px;
+	transform: translateX(-50%);
 }
 
 .shadow-outer:before {

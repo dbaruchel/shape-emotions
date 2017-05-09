@@ -66,7 +66,11 @@ Template.body.events({
   	instance.state.set('currentEmotionId', this._id);
 
   	let hashEmotionId = '#' + this._id;
-
+ 		debugger;
+ 		if ($(".emotion-selected")[0]) {
+ 			$(".emotion-selected audio")[0].pause();
+ 		}
+  	// $(hashEmotionId ).siblings().find("audio")[0].stop();
   	$(hashEmotionId ).addClass("emotion-selected");
   	$(hashEmotionId ).siblings().removeClass("emotion-selected");
   	$(hashEmotionId + ' audio')[0].play();
